@@ -15,7 +15,7 @@ namespace Repository.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController<T, TResponse> : ControllerBase where T : class
+    public abstract class BaseController<T, TResponse> : ControllerBase where T : class
                                                                where TResponse : class
     {
         public readonly DataContext context;
@@ -55,7 +55,7 @@ namespace Repository.Controllers
 
         // GET: api/[Controller]/1 
         [HttpGet("{Id}")]
-        public virtual ActionResult<ApiResponses> GetEntity([FromQuery] int Id)
+        public virtual ActionResult<ApiResponses> GetEntity(int Id)
         {
             ApiResponses response = new ApiResponses()
             {
@@ -121,7 +121,7 @@ namespace Repository.Controllers
 
         // POST: api/Base
         [HttpPost]
-        public virtual ActionResult<ApiResponses> PostEntity(T request)
+        public virtual ActionResult<ApiResponses> PostEntity(TResponse _request)
         {
             ApiResponses response = new ApiResponses()
             {
@@ -131,6 +131,8 @@ namespace Repository.Controllers
 
             try
             {
+                var request = mapper.Map<T>(_request);
+
                 if (!Validate(request))
                 {
                     response.Message = String.Format(MessageResponse.Invalid_Object, request.ToString());

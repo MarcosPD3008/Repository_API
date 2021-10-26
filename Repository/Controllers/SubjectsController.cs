@@ -19,7 +19,6 @@ namespace Repository.Controllers
         public SubjectsController(DataContext _context, IRepository<Subjects> _repository, IMapper _mapper) : base(_context, _repository, _mapper)
         {
         }
-
         [NonAction]
         public override Subjects Transform(Subjects entity)
         {

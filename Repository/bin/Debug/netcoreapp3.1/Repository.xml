@@ -4,5 +4,17 @@
         <name>Repository</name>
     </assembly>
     <members>
+        <member name="M:Repository.Controllers.StudentSubjectsController.GetByStudent(System.Int32)">
+            <summary>
+            get all Subjects of a student.
+            </summary>
+            <param name="IdStudent"></param>
+        </member>
+        <member name="M:Repository.Controllers.StudentSubjectsController.GetBySubject(System.Int32)">
+            <summary>
+            get all students who take a subject
+            </summary>
+            <param name="IdSubject"></param>
+        </member>
     </members>
 </doc>
