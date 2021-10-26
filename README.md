@@ -15,5 +15,7 @@ Para ejecutar use alguna de estas opciones:
 
 1 - Ejecute el archivo Repository_DB.sql, disponible en la raiz del repositorio,
     Luego cambie el connection string en el DataContext.cs (Repository/Repository/Data/DataContext.cs)
+    
                                       -O-
+                                      
 2 - Haga el proceso de code first de entity framework que esta en el siguiente enlace:  https://entityframeworkcore.com/approach-code-first
